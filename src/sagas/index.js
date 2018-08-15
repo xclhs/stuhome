@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import { take, fork, select, put, call } from 'redux-saga/effects';
 
 import * as sessionActions from '~/modules/user/session.ducks';
-import * as topicListActions from '~/modules/topic/topicList.ducks';
+import * as topicListActions from '~/modules/topic/topicList/topicList.ducks';
 import * as userTopicListActions from '~/modules/user/userTopicList.ducks';
 import * as forumListActions from '~/modules/forum/forumList.ducks';
 import * as notifyListActions from '~/modules/message/notifyList.ducks';
@@ -251,7 +251,6 @@ function* fetchFriendList(payload) {
 export default function* rootSaga() {
   yield fork(watchRetrieveSession);
   yield fork(watchLogin);
-  yield fork(watchTopicList);
   yield fork(watchUserTopicList);
   yield fork(watchForumList);
   yield fork(watchNotifyList);
